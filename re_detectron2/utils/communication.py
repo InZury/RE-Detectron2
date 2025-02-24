@@ -1,4 +1,5 @@
 import functools
+import logging
 import pickle
 import torch
 import numpy as np
@@ -64,6 +65,12 @@ def serialize_to_tensor(data, group):
 
     device = torch.device("cpu" if backend == "gloo" else "cuda")
     buffer = pickle.dumps(data)
+
+    if len(buffer) > 1024 ** 3:
+        logger = logging.getLogger(__name__)
+        logger.warning(
+            f"Rank {get_rank()} trying to all-gather {(len(buffer) / (1024 ** 3)):.2f} GB of data on device {device}"
+        )
 
     storage = torch.ByteStorage.from_buffer(buffer)
     tensor = torch.ByteTensor(storage).to(device=device)
