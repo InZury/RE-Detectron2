@@ -1,2 +1,2 @@
 # Ignore a test file
-.test_test.py
+./test_test.py
