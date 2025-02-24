@@ -85,7 +85,7 @@ def setup_environment():
 
 def setup_custom_environment(custom_module):
     if custom_module.endswith(".py"):
-        module = import_file("RE-Detectron2.utils.environments.custom_module", custom_module)
+        module = import_file("re-detectron2.utils.environments.custom_module", custom_module)
     else:
         module = importlib.import_module(custom_module)
 
