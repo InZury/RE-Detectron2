@@ -55,7 +55,7 @@ def configure_libraries():
             pass
 
     def get_version(module, digit=2):
-        return tuple(map(int, module.__version__.split(",")[:digit]))
+        return tuple(map(int, module.__version__.split(".")[:digit]))
 
     # fmt: off
     assert get_version(torch) >= (2, 6), "Requires torch >= 2.6"
@@ -75,7 +75,7 @@ def setup_environment():
     ENVIRONMENT_SETUP_DONE = True
 
     configure_libraries()
-    custom_module_path = os.environ.get("RE-DETECTRON2_ENV_MODULE")
+    custom_module_path = os.environ.get("RE_DETECTRON2_ENV_MODULE")
 
     if custom_module_path:
         setup_custom_environment(custom_module_path)
@@ -85,7 +85,7 @@ def setup_environment():
 
 def setup_custom_environment(custom_module):
     if custom_module.endswith(".py"):
-        module = import_file("re-detectron2.utils.environments.custom_module", custom_module)
+        module = import_file("re_detectron2.utils.environments.custom_module", custom_module)
     else:
         module = importlib.import_module(custom_module)
 
