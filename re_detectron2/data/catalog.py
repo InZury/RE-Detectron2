@@ -7,7 +7,7 @@ from typing import List
 
 from ..utils.logger import log_first_n
 
-__all__ = ["data_catalog"]
+__all__ = ["data_catalog", "metadata_catalog", "Metadata"]
 
 
 class DatasetCatalog(UserDict):
