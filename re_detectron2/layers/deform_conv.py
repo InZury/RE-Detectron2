@@ -7,5 +7,5 @@ from torch.autograd import Function
 from torch.autograd.function import once_differentiable
 from torch.nn.modules.utils import _pair
 
-# from re_detectron2 import _C
+# from re_detectron2 import CFile
 from .wrappers import NewEmptyTensorOp

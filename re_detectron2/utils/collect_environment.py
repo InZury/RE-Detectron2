@@ -81,7 +81,7 @@ def collect_environment_info():
         data.append(("re_detectron2", "failed to import"))
 
     try:
-        from re_detectron2 import CONFIG
+        from re_detectron2 import CFile
     except ImportError:
         data.append(("re_detectron2.CONFIG", "failed to import. re_detectron2 is not built correctly"))
 

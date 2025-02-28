@@ -29,10 +29,10 @@ def batched_nms(
 
 
 def nmp_rotated(boxes, scores, iou_threshold):
-    # import CONFIG
-    # return CONFIG.nms_rotated(boxes, scores, iou_threshold)
+    # from re_detectron2 import CFile
 
-    return None
+    # return CFile.nms_rotated(boxes, scores, iou_threshold)
+    return
 
 
 def batched_nms_rotated(boxes, scores, indexes, iou_threshold):
