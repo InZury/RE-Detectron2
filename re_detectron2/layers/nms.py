@@ -6,6 +6,9 @@ from torchvision.ops import boxes as boxes_ops
 from torchvision.ops import nms
 
 
+nms = nms
+
+
 # NMS(Non Maximum Suppression)
 def batched_nms(
         boxes: torch.Tensor, scores: torch.Tensor, indexes: torch.Tensor, iou_threshold: float
@@ -29,10 +32,9 @@ def batched_nms(
 
 
 def nmp_rotated(boxes, scores, iou_threshold):
-    # from re_detectron2 import CFile
+    from re_detectron2 import CFile
 
-    # return CFile.nms_rotated(boxes, scores, iou_threshold)
-    return
+    return CFile.nms_rotated(boxes, scores, iou_threshold)
 
 
 def batched_nms_rotated(boxes, scores, indexes, iou_threshold):
